@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<style>
+		.back{
+		 background-image: url("{{ url_for('static', filename='image/hate1.gif') }}");
+		  background-repeat: no-repeat;
+		  background-attachment: fixed;
+		  background-size: 100% 100%;
+		}
+		center{
+		padding-top:10%;
+		}
+		a{
+		color:red;
+		}
+		</style>
+</head>
+<body class="back">
+
+	<header class="jumbotron" style="height: 100px;">
+		<div class="container">
+		<h2 style="text-align:center">PREDICTION OF HATE SPEECH CLASSIFICATION</h2>
+		
+	</div>
+	</header>
+	<center>
+
+	<div class="card" style="width:30%">
+	<p style="color:red;font-size:20;text-align: center;"><b>Result for Hate Speech Classification</b></p>
+	<div class="results">
+	
+
+		
+	{% if prediction[0] == 'Hate_Speech' %}
+	
+	<h2 style="color:blue;">Hate Speech</h2>
+	{% elif prediction[0] == 'Offensive_Language' %}
+	
+	<h2 style="color:red;">Offensive Language</h2>
+	{% elif prediction[0] == 'No_Hate_and_Offensive' %}
+	
+	<h2 style="color:green;">No Hate and Offensive</h2>
+	{% endif %}
+    </div>
+    </center>
+
+	</div>
+<a href="{{ url_for('home')}}">Go back</a>
+
+</body>
+</html>
